@@ -32,21 +32,33 @@ createApp({
         'img/04.webp',
         'img/05.webp',
       ],
-      counter: 0
+      counter: 0,
+      timer: null
     }
   },
   methods:{
     prevNext(isNext){
       isNext ? this.counter++ : this.counter--;
 
+      this.overLimit();      
+    },
+    overLimit(){
       if(this.counter === this.imgsLink.length)  this.counter = 0;
 
       if(this.counter < 0)  this.counter = this.imgsLink.length - 1;
+    },
+    startSlider(){
+      this.timer = setInterval( () => {
+        this.counter++;
+  
+        this.overLimit();
+      }, 3000);
+    },
+    stopSlider(){
+      clearInterval(this.timer);
     }
   },
   mounted(){
-    setInterval( () => {
-      this.counter++;
-    }, 3000);
+    this.startSlider();
   }
 }).mount('#app');

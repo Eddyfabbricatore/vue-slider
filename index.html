@@ -35,6 +35,8 @@
           v-for="(img, index) in imgsLink" 
           :class="{'active' : index === counter}"
           @click="counter = index"
+          @mousemove="stopSlider"
+          @mouseleave="startSlider"
           :src="img" alt="">
         </div>
 
