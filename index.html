@@ -31,9 +31,10 @@
 
         <div class="thumbs-wrapper d-flex flex-column h-100">
           <img 
+          class="thumb"
           v-for="(img, index) in imgsLink" 
-          class="thumb" 
           :class="{'active' : index === counter}"
+          @click="counter = index"
           :src="img" alt="">
         </div>
 
