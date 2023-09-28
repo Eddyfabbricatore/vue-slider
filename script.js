@@ -43,6 +43,10 @@ createApp({
 
       if(this.counter < 0)  this.counter = this.imgsLink.length - 1;
     }
-
+  },
+  mounted(){
+    setInterval( () => {
+      this.counter++;
+    }, 3000);
   }
 }).mount('#app');
